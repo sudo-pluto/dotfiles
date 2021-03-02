@@ -52,7 +52,7 @@ call vundle#end()
 "gruvbox theme
 set termguicolors
 set background=dark
-colorscheme nightfly
+#colorscheme nightfly
 
 "nerdcomment toggle
 nmap <c-_> <leader>c<space>
