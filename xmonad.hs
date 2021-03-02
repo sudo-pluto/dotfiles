@@ -64,6 +64,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- brightness keys
     , ((0, xF86XK_MonBrightnessUp), spawn "light -A 5")
     , ((0, xF86XK_MonBrightnessDown), spawn "light -U 5")
+    
+    -- printscreen key
+    , ((0, xK_Print), spawn "gnome-screenshot")
 
     -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
