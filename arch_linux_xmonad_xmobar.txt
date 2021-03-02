@@ -5,7 +5,7 @@ BASIC ARCH OS
 
 
 => Make bootable pendrive
-                      #  dd  if=<filename>.iso  of=/dev/<dev>  bs=4M  status=’progress’
+#  dd  if=<filename>.iso  of=/dev/<dev>  bs=4M  status=’progress’
 
 
 => Show network interface & status
@@ -211,15 +211,9 @@ XMONAD & XMOBAR
                          $  cd  .xmonad
                          $  vim  xmonad.hs
                               ** import XMonad
-                                   main        =  xmonad  def
+                                 main        =  xmonad  def
                                                     {  terminal             =  “terminator”
                                                      ,  modMask          =  mod4Mask
                                                     }
 => Reboot the system
-                        $  reboot
-
-
-
-
-=> Clone xmonad & xmobar settings from github
-                                        https://github.com/sudo-pluto/dotfiles
+$  reboot
