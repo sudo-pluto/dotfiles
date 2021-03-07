@@ -3,3 +3,6 @@ nitrogen --restore &
 
 # compositor
 picom -f &
+
+# brightness
+light -S 40 &
