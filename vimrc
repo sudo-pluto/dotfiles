@@ -45,14 +45,14 @@ Plugin 'itchyny/lightline.vim'		"manage status bar
 Plugin 'scrooloose/nerdcommenter'	"manage comments
 Plugin 'preservim/nerdtree'		"manage file tree
 Plugin 'mbbill/undotree'		"manage undo dir
-#Plugin 'bluz71/vim-nightfly-guicolors'
+"Plugin 'bluz71/vim-nightfly-guicolors'
 call vundle#end()
 
 
 "theme
 set termguicolors
 set background=dark
-#colorscheme nightfly
+"colorscheme nightfly
 
 "nerdcomment toggle
 nmap <c-_> <leader>c<space>
