@@ -23,7 +23,7 @@ myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -46,7 +46,7 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 -- Border colors for unfocused and focused windows, respectively.
 --
 myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myFocusedBorderColor = "#1ABC9C"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -58,12 +58,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     
     -- volume keys
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
+    , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
 
     -- brightness keys
-    , ((0, xF86XK_MonBrightnessUp), spawn "light -A 5")
-    , ((0, xF86XK_MonBrightnessDown), spawn "light -U 5")
+    , ((0, xF86XK_MonBrightnessUp), spawn "light -A 1")
+    , ((0, xF86XK_MonBrightnessDown), spawn "light -U 1")
     
     -- printscreen key
     , ((0, xK_Print), spawn "gnome-screenshot")
