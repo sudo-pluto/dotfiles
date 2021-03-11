@@ -1,4 +1,4 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
+Config { font = "xft:code_new_roman:size=9:bold:antialias=true"
        , additionalFonts = ["xft:FontAwesome:pixelsize=13"]
 	   , border = NoBorder
        , borderColor = "black"
@@ -15,17 +15,17 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "VEPT" ["-t","<station>: <tempC> C",
+       , commands = [ Run Weather "VEPT" ["-t","<station> : <tempC> °C",
                                           "-L","18","-H","25",
                                           "--normal","green",
-                                          "--high","red",
+                                          "--high","yellow",
                                           "--low","lightblue"] 36000
-                    , Run Cpu ["-L","3","-H","50","-t","CPU: <total>%",
+                    , Run Cpu ["-L","3","-H","50","-t","CPU : <total>%",
                                "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","MEM: <usedratio>%"] 10
+                    , Run Memory ["-t","MEM : <usedratio>%"] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
-                    , Run Date "%a %b %d %Y %H:%M:%S" "date" 4
-		            , Run Battery        [ "--template" , "POWER:<acstatus>"
+                    , Run Date "%a %b %d %Y %H : %M : %S" "date" 4
+		            , Run Battery        [ "--template" , "POWER : <acstatus>"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "red"
@@ -34,17 +34,17 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
 
                              , "--" -- battery specific options
                                 -- discharging status
-                             , "-o"	, "<left>%~<timeleft>"
+                             , "-o"	, "<left>% <timeleft>"
                                 -- AC "on" status
-                             , "-O"	, "<fc=yellow>Charging <left>%</fc>"
+                             , "-O"	, "<fc=yellow>CHARGING <left>%</fc>"
                                 -- charged status
                              , "-i"	, "<fc=green>CHARGED <left>%</fc>" ] 20
 			     , Run StdinReader
-			     , Run Network "wlp1s0" ["-t","D:<rx>KB U:<tx>KB","-L","0","-H","32","--normal","yellow","--high","green"] 10
-			     , Run Wireless "wlp1s0" ["-t","WI-FI: <ssid>"] 10
-			     , Run DiskU [("/", "Hdd:<used>/<size>"), ("sdb1", "<usedbar>")]
+			     , Run Network "wlp1s0" ["-t","D : <rx>KB  U : <tx>KB","-L","0","-H","32","--normal","yellow","--high","green"] 10
+			     , Run Wireless "wlp1s0" ["-t","WI-FI : <ssid>"] 10
+			     , Run DiskU [("/", "HDD : <size> - <used>"), ("sdb1", "SDB1 : <used>/<size>"),("sdc1", "SDC1 : <used>/<size>")]
 			     		 ["-L", "20", "-H", "50", "-m", "1", "-p", "3"] 20
-			     , Run CoreTemp ["-t", "TEMP:<core0>C <core1>C",
+			     , Run CoreTemp ["-t", "TEMP : <core0> °C   <core1> °C",
                   				"-L", "40", "-H", "60",
                   				"-l", "lightblue", "-n", "green", "-h", "red"] 40
 			     , Run Locks
@@ -52,5 +52,6 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-	   , template = "[ %battery% ] [ %cpu% %coretemp% ] [ %memory% %disku% ] [ %wlp1s0wi% %wlp1s0% ] [ <fc=#ee9a00>%date%</fc> %VEPT% ] %locks% %StdinReader% }{ [ Brightness: %light% ] [ %uname% ]"
+	   , template = " %battery%    ||    %cpu%  %coretemp%    ||    %memory%  %disku%    ||    %wlp1s0wi%  %wlp1s0%    ||    <fc=#ee9a00>%date%</fc>  %VEPT%    ||   %StdinReader% }\
+	   				\{%locks%     Brightness: %light%    ||    Arch  %uname% "
        }
